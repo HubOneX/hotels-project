@@ -4,6 +4,7 @@ import AppContainer from "./components/appContainer/AppContainer";
 import HotelsView from "./components/hotelsView/HotelsView";
 import { ThemeProvider } from "@mui/material/styles";
 import lightTheme from "./themes/lightTheme";
+import { hotelsMockArray } from "./mocks/hotelsMockArray";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Box sx={{ backgroundColor: "red", width: "100%" }}>
           <Typography>This is a Hero</Typography>
         </Box>
-        <HotelsView />
+        <HotelsView hotelsData={hotelsMockArray} />
       </AppContainer>
     </ThemeProvider>
   );
