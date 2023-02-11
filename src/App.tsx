@@ -1,13 +1,14 @@
-import { Typography } from '@mui/material';
-import React from 'react';
-import DeleteIcon from "@mui/icons-material/Delete"
-import HotelsContainer from './components/hotelsContainer/HotelsContainer';
-import AppContainer from './components/appContainer/AppContainer';
+import { Box, Typography } from "@mui/material";
+import React from "react";
+import HotelsContainer from "./components/hotelsContainer/HotelsContainer";
+import AppContainer from "./components/appContainer/AppContainer";
 
 function App() {
   return (
     <AppContainer>
-      <DeleteIcon />
+      <Box sx={{ backgroundColor: "red", width: "100%" }}>
+        <Typography>This is a Hero</Typography>
+      </Box>
       <HotelsContainer>
         <Typography>Hello World!</Typography>
         <Typography>This is Hotels View</Typography>
