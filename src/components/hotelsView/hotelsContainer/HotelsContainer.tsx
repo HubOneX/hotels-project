@@ -10,6 +10,7 @@ const StyledContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  marginTop: 50
 });
 
 const HotelsContainer: FC<Props> = ({ children }) => {
