@@ -14,7 +14,6 @@ type Props = {
 
 const CardWrapper = styled(Box)({
   width: "100%",
-  // backgroundColor: "limegreen",
   margin: "15px 0",
   padding: "15px",
   display: "flex",
