@@ -19,7 +19,7 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
         >
           <Typography variant="h4">{name}</Typography>
           <Typography variant="subtitle1">
-            Adults: {occupancy.maxAdutls}
+            Adults: {occupancy.maxAdults}
           </Typography>
           <Typography variant="subtitle1">
             Children: {occupancy.maxChildren}

@@ -45,7 +45,7 @@ const HotelCard: FC<Props> = ({
           starRating={starRating}
         />
       </HotelHeader>
-      {roomsData.map((room) => {
+      {roomsData && roomsData.map((room) => {
         return (
           <RoomCard
             key={room.id}

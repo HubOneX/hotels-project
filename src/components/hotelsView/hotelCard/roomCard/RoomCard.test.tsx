@@ -7,7 +7,7 @@ const defaultProps: RoomData = {
   name: "Room",
   longDescription: "description",
   occupancy: {
-    maxAdutls: 2,
+    maxAdults: 2,
     maxChildren: 1,
     maxOverall: 3,
   },

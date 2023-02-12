@@ -1,5 +1,5 @@
 export type HotelData = {
-  id?: string;
+  id: string;
   hotelName: string;
   hotelAddressFirstLine: string;
   hotelAddressSecondLine: string;
@@ -15,7 +15,7 @@ export type RoomData = {
 };
 
 export type Occupancy = {
-  maxAdutls: number;
+  maxAdults: number;
   maxChildren: number;
   maxOverall: number;
 };
