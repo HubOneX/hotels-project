@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { HotelData, RoomData } from "../../types/HotelTypes";
+import { HotelData } from "../../types/HotelTypes";
 import HotelCard from "./hotelCard/HotelCard";
 import HotelsContainer from "./hotelsContainer/HotelsContainer";
 
