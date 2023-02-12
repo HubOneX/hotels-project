@@ -4,6 +4,7 @@ export type HotelData = {
   hotelAddressFirstLine: string;
   hotelAddressSecondLine: string;
   starRating: number;
+  roomsData: RoomData[];
 };
 
 export type RoomData = {

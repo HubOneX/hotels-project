@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { HotelData } from "../../types/HotelTypes";
+import { HotelData, RoomData } from "../../types/HotelTypes";
 import HotelCard from "./hotelCard/HotelCard";
 import HotelsContainer from "./hotelsContainer/HotelsContainer";
 
@@ -15,7 +15,8 @@ const HotelsView: FC<Props> = ({ hotelsData }) => {
             hotelAddressFirstLine={hotel.hotelAddressFirstLine}
             hotelAddressSecondLine={hotel.hotelAddressSecondLine}
             starRating={hotel.starRating}
-            key={hotel.id}
+            id={hotel.id}
+            roomsData={hotel.roomsData}
           />
         );
       })}
