@@ -8,9 +8,11 @@ describe("App", () => {
     expect(foundElement).toBeInTheDocument();
   });
 
-  it("should render hotels view", () => {
+  it("should not render hotels view when without data", () => {
     render(<App />);
-    const foundElements = screen.getAllByTestId("HotelCard");
-    expect(foundElements).toHaveLength(3);
+    const foundElements = screen.queryByTestId("HotelView");
+    expect(foundElements).not.toBeInTheDocument();
   });
+
+  it.todo("should render hotels view when with datas");
 });

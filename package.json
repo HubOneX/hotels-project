@@ -44,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.4.2",
+    "jsdom": "^21.1.0",
+    "ts-jest": "^29.0.5"
   }
 }
