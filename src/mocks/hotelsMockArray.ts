@@ -1,22 +1,29 @@
-import { HotelInformation } from "../types/HotelTypes";
+import { HotelData } from "../types/HotelTypes";
+import { roomsMockArray } from "./roomsMockArray";
 
-export const hotelsMockArray: HotelInformation[] = [
-    {
-      hotelName: "Hotel 1",
-      hotelAddressFirstLine: "Gdansk",
-      hotelAddressSecondLine: "al. Grunwaldzka",
-      starRating: 4,
-    },
-    {
-      hotelName: "Second Hotel",
-      hotelAddressFirstLine: "Warsaw",
-      hotelAddressSecondLine: "ul. Gdanska",
-      starRating: 1,
-    },
-    {
-      hotelName: "Motel la Venturas",
-      hotelAddressFirstLine: "Lloret de Mar",
-      hotelAddressSecondLine: "First Avenue",
-      starRating: 3,
-    },
-  ];
+export const hotelsMockArray: HotelData[] = [
+  {
+    id: "H01",
+    hotelName: "Hotel 1",
+    hotelAddressFirstLine: "Gdansk",
+    hotelAddressSecondLine: "al. Grunwaldzka",
+    starRating: 4,
+    roomsData: roomsMockArray,
+  },
+  {
+    id: "H02",
+    hotelName: "Second Hotel",
+    hotelAddressFirstLine: "Warsaw",
+    hotelAddressSecondLine: "ul. Gdanska",
+    starRating: 1,
+    roomsData: roomsMockArray,
+  },
+  {
+    id: "H03",
+    hotelName: "Motel la Venturas",
+    hotelAddressFirstLine: "Lloret de Mar",
+    hotelAddressSecondLine: "First Avenue",
+    starRating: 3,
+    roomsData: roomsMockArray,
+  },
+];

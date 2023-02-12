@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { HotelInformation } from "../../types/HotelTypes";
+import { HotelData, RoomData } from "../../types/HotelTypes";
 import HotelCard from "./hotelCard/HotelCard";
 import HotelsContainer from "./hotelsContainer/HotelsContainer";
 
-type Props = { hotelsData: HotelInformation[] };
+type Props = { hotelsData: HotelData[] };
 
 const HotelsView: FC<Props> = ({ hotelsData }) => {
   return (
@@ -15,7 +15,8 @@ const HotelsView: FC<Props> = ({ hotelsData }) => {
             hotelAddressFirstLine={hotel.hotelAddressFirstLine}
             hotelAddressSecondLine={hotel.hotelAddressSecondLine}
             starRating={hotel.starRating}
-            key={hotel.hotelName}
+            key={hotel.id}
+            roomsData={hotel.roomsData}
           />
         );
       })}

@@ -16,6 +16,7 @@ describe("HotelInformation", () => {
         hotelName={expectedText}
         hotelAddressFirstLine=""
         hotelAddressSecondLine=""
+        starRating={3}
       />
     );
     checkIfSingularElementExists();
@@ -27,6 +28,7 @@ describe("HotelInformation", () => {
         hotelName=""
         hotelAddressFirstLine={expectedText}
         hotelAddressSecondLine=""
+        starRating={3}
       />
     );
     checkIfSingularElementExists();
@@ -38,6 +40,7 @@ describe("HotelInformation", () => {
         hotelName=""
         hotelAddressFirstLine=""
         hotelAddressSecondLine={expectedText}
+        starRating={3}
       />
     );
     checkIfSingularElementExists();
