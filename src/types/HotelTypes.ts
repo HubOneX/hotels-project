@@ -1,5 +1,5 @@
 export type HotelData = {
-  id: string,
+  id?: string;
   hotelName: string;
   hotelAddressFirstLine: string;
   hotelAddressSecondLine: string;
@@ -8,10 +8,10 @@ export type HotelData = {
 };
 
 export type RoomData = {
-  id: string,
-  name: string,
-  longDescription: string,
-  occupancy: Occupancy,
+  id?: string;
+  name: string;
+  longDescription: string;
+  occupancy: Occupancy;
 };
 
 export type Occupancy = {

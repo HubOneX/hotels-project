@@ -1,17 +1,10 @@
 import styled from "@emotion/styled";
-import { Box, Divider, Rating } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../../constants/colors";
 import { HotelData } from "../../../types/HotelTypes";
 import HotelInformation from "./hotelInformation/HotelInformation";
 import RoomCard from "./roomCard/RoomCard";
-
-// type Props = {
-//   hotelName: string;
-//   hotelAddressFirstLine: string;
-//   hotelAddressSecondLine: string;
-//   starRating: number;
-// };
 
 type Props = HotelData;
 
@@ -31,7 +24,6 @@ const HotelHeader = styled(Box)({
 });
 
 const HotelCard: FC<Props> = ({
-  id,
   hotelName,
   hotelAddressFirstLine,
   hotelAddressSecondLine,
@@ -39,7 +31,7 @@ const HotelCard: FC<Props> = ({
   roomsData,
 }) => {
   return (
-    <CardWrapper data-testid="HotelCard" key={id}>
+    <CardWrapper data-testid="HotelCard">
       <HotelHeader>
         <Box
           sx={{ width: "250px", height: "150px", backgroundColor: "yellow" }}
@@ -55,15 +47,12 @@ const HotelCard: FC<Props> = ({
       </HotelHeader>
       {roomsData.map((room) => {
         return (
-          <>
-            <Divider  sx={{ margin: '10px 0' }} />
-            <RoomCard
-              id={room.id}
-              name={room.name}
-              longDescription={room.longDescription}
-              occupancy={room.occupancy}
-            />
-          </>
+          <RoomCard
+            key={room.id}
+            name={room.name}
+            longDescription={room.longDescription}
+            occupancy={room.occupancy}
+          />
         );
       })}
     </CardWrapper>
