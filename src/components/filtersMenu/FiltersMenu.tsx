@@ -60,6 +60,7 @@ const FiltersMenu: FC<Props> = ({
           guestType={GuestType.Child}
           currentCount={childrenCount}
           setCurrentCount={setChildrenCount}
+          isAdditionDisabled={adultsCount === 0}
         />
       </FiltersCard>
     </Container>

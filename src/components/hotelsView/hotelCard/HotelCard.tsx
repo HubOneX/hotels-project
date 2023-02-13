@@ -43,16 +43,18 @@ const HotelCard: FC<Props> = ({
           starRating={starRating}
         />
       </HotelHeader>
-      {roomsData && roomsData.map((room) => {
-        return (
-          <RoomCard
-            key={room.id}
-            name={room.name}
-            longDescription={room.longDescription}
-            occupancy={room.occupancy}
-          />
-        );
-      })}
+      {roomsData &&
+        roomsData.length !== 0 &&
+        roomsData.map((room) => {
+          return (
+            <RoomCard
+              key={room.id}
+              name={room.name}
+              longDescription={room.longDescription}
+              occupancy={room.occupancy}
+            />
+          );
+        })}
     </CardWrapper>
   );
 };
