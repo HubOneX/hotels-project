@@ -15,6 +15,7 @@ const useFetchHotels = (
         hotelAddressFirstLine: hotel.address1,
         hotelAddressSecondLine: hotel.address2,
         starRating: hotel.starRating,
+        images: hotel.images,
         roomsData: [],
       };
     });
@@ -57,6 +58,8 @@ const useFetchHotels = (
     );
 
     const parsedHotels = parseFetchedHotelsData(fetchedHotels);
+
+    console.log(parsedHotels);
 
     await fetchRoomsForAllHotels(parsedHotels);
 

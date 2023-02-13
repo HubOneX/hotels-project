@@ -18,6 +18,7 @@ const HotelsView: FC<Props> = ({ hotelsData }) => {
               hotelAddressSecondLine={hotel.hotelAddressSecondLine}
               starRating={hotel.starRating}
               roomsData={hotel.roomsData}
+              images={hotel.images}
               key={hotel.id}
             />
           );

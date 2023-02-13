@@ -4,8 +4,14 @@ export type HotelData = {
   hotelAddressFirstLine: string;
   hotelAddressSecondLine: string;
   starRating: number;
+  images: ImageWithAlt[];
   roomsData: RoomData[];
 };
+
+export type ImageWithAlt = {
+  url: string,
+  alt: string
+}
 
 export type RoomData = {
   id?: string;

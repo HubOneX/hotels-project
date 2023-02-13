@@ -8,6 +8,7 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Gdansk",
     hotelAddressSecondLine: "al. Grunwaldzka",
     starRating: 4,
+    images: [{url: 'url', alt: 'alt'}],
     roomsData: roomsMockArray,
   },
   {
@@ -16,6 +17,7 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Warsaw",
     hotelAddressSecondLine: "ul. Gdanska",
     starRating: 1,
+    images: [{url: 'url', alt: 'alt'}],
     roomsData: roomsMockArray,
   },
   {
@@ -24,6 +26,7 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Lloret de Mar",
     hotelAddressSecondLine: "First Avenue",
     starRating: 3,
+    images: [{url: 'url', alt: 'alt'}],
     roomsData: roomsMockArray,
   },
 ];

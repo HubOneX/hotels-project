@@ -10,6 +10,7 @@ describe("HotelCard", () => {
     hotelAddressFirstLine: "address",
     hotelAddressSecondLine: "and second line",
     starRating: 4,
+    images: [{url: 'url', alt: 'alt' }],
     roomsData: roomsMockArray,
   };
 

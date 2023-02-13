@@ -3,6 +3,7 @@ import { Box, Divider } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../../constants/colors";
 import { HotelData } from "../../../types/HotelTypes";
+import HotelImages from "./hotelImages/HotelImages";
 import HotelInformation from "./hotelInformation/HotelInformation";
 import RoomCard from "./roomCard/RoomCard";
 
@@ -28,16 +29,18 @@ const HotelCard: FC<Props> = ({
   hotelAddressFirstLine,
   hotelAddressSecondLine,
   starRating,
+  images,
   roomsData,
 }) => {
   return (
     <CardWrapper data-testid="HotelCard">
       <HotelHeader>
-        <Box
+        {/* <Box
           sx={{ width: "250px", height: "150px", backgroundColor: "yellow" }}
         >
           Image Placeholder
-        </Box>
+        </Box> */}
+        <HotelImages images={images} />
         <HotelInformation
           hotelName={hotelName}
           hotelAddressFirstLine={hotelAddressFirstLine}
