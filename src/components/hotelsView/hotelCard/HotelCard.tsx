@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../../constants/colors";
 import { HotelData } from "../../../types/HotelTypes";
@@ -35,11 +35,6 @@ const HotelCard: FC<Props> = ({
   return (
     <CardWrapper data-testid="HotelCard">
       <HotelHeader>
-        {/* <Box
-          sx={{ width: "250px", height: "150px", backgroundColor: "yellow" }}
-        >
-          Image Placeholder
-        </Box> */}
         <HotelImages images={images} />
         <HotelInformation
           hotelName={hotelName}

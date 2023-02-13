@@ -12,7 +12,7 @@ import FiltersMenu from "./components/filtersMenu/FiltersMenu";
 function App() {
   const [hotelsData, setHotelsData] = useState<HotelData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  
+
   //TODO: creat custom hook for managing this state and returning filtered data
   const [rating, setRating] = useState<number>(0);
   const [adultsCount, setAdultsCount] = useState<number>(0);
@@ -37,10 +37,15 @@ function App() {
           <Loader data-testid="Loader" />
         ) : (
           <>
-            <Box sx={{ backgroundColor: "red", width: "100%" }}>
+            <Box
+              sx={{
+                backgroundColor: "lightblue",
+                width: "100%",
+                height: "300px",
+              }}
+            >
               <Typography>This is a Hero</Typography>
             </Box>
-            <Container sx={{ display: "flex", justifyContent: "center" }}>
               <FiltersMenu
                 rating={rating}
                 setRating={setRating}
@@ -49,7 +54,6 @@ function App() {
                 childrenCount={childrenCount}
                 setChildrenCount={setChildrenCount}
               />
-            </Container>
             <HotelsView hotelsData={hotelsData} data-testid="HotelView" />
           </>
         )}
