@@ -1,6 +1,12 @@
 import { createTheme } from "@mui/material/styles";
+import { lightBlue, pink } from "@mui/material/colors";
 
-const lightTheme = createTheme();
+const lightTheme = createTheme({
+  palette: {
+    primary: lightBlue,
+    secondary: pink,
+  },
+});
 
 lightTheme.typography.h3 = {
   fontWeight: 500,
