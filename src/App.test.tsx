@@ -14,5 +14,5 @@ describe("App", () => {
     expect(foundElements).not.toBeInTheDocument();
   });
 
-  it.todo("should render hotels view when with datas");
+  it.todo("should render hotels view when with data");
 });
