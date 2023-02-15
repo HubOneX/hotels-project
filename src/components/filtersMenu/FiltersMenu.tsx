@@ -16,13 +16,9 @@ type Props = {
 
 const FiltersCard = styled(Box)({
   display: "flex",
-  flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
-  gap: "22px",
-  padding: "10px",
   backgroundColor: colors.lightGrey,
-  width: "600px",
   borderRadius: "8px",
   boxShadow: `0px 8px 12px -8px ${colors.midGrey}`,
 });
@@ -43,7 +39,14 @@ const FiltersMenu: FC<Props> = ({
         transform: "translateY(-30px)",
       }}
     >
-      <FiltersCard>
+      <FiltersCard
+        sx={{
+          flexDirection: { xs: "column", sm: "row" },
+          width: { xs: "250px", sm: "600px" },
+          padding: { xs: "20px", sm: "10px" },
+          gap: { xs: "5px", sm: "22px" },
+        }}
+      >
         <Rating
           value={rating}
           onChange={(_, newValue) => {

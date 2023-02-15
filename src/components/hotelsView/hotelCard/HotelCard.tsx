@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../../constants/colors";
 import { HotelData } from "../../../types/DataTypes";
@@ -34,7 +34,16 @@ const HotelCard: FC<Props> = ({
 }) => {
   return (
     <CardWrapper data-testid="HotelCard">
-      <HotelHeader>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: {
+            xs: "column-reverse",
+            md: "row",
+          },
+          alignItems: { xs: "center", md: "flex-start" },
+        }}
+      >
         <HotelImages images={images} />
         <HotelInformation
           hotelName={hotelName}
@@ -42,7 +51,7 @@ const HotelCard: FC<Props> = ({
           hotelAddressSecondLine={hotelAddressSecondLine}
           starRating={starRating}
         />
-      </HotelHeader>
+      </Box>
       {roomsData &&
         roomsData.length !== 0 &&
         roomsData.map((room) => {

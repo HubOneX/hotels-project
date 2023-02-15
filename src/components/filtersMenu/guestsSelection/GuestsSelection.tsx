@@ -34,7 +34,7 @@ const GuestsSelection: FC<Props> = ({
 
   return (
     <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-      <Typography>{guestTypeSubtitle}:</Typography>
+      <Typography variant="body2">{guestTypeSubtitle}:</Typography>
 
       <IconButton
         onClick={() => setCurrentCount(currentCount + 1)}
@@ -42,7 +42,7 @@ const GuestsSelection: FC<Props> = ({
       >
         <AddIcon />
       </IconButton>
-      <Typography>{currentCount}</Typography>
+      <Typography variant="body2">{currentCount}</Typography>
       <IconButton
         disabled={currentCount <= 0}
         onClick={() => setCurrentCount(currentCount - 1)}
