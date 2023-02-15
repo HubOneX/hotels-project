@@ -52,6 +52,8 @@ const useRoomFilters = (
     return filteredData;
   };
 
+  const _forTestsOnly = { filterByChildren, filterByAdults, filterByStars };
+
   const filterRooms = () => {
     let filteredData: HotelData[] = hotelsData;
 
@@ -62,7 +64,7 @@ const useRoomFilters = (
     return filteredData.filter((hotel) => hotel.roomsData.length !== 0);
   };
 
-  return { filterRooms };
+  return { filterRooms, _forTestsOnly };
 };
 
 export default useRoomFilters;

@@ -8,7 +8,7 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Gdansk",
     hotelAddressSecondLine: "al. Grunwaldzka",
     starRating: 4,
-    images: [{url: 'url', alt: 'alt'}],
+    images: [{ url: "url", alt: "alt" }],
     roomsData: roomsMockArray,
   },
   {
@@ -17,7 +17,7 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Warsaw",
     hotelAddressSecondLine: "ul. Gdanska",
     starRating: 1,
-    images: [{url: 'url', alt: 'alt'}],
+    images: [{ url: "url", alt: "alt" }],
     roomsData: roomsMockArray,
   },
   {
@@ -26,7 +26,16 @@ export const hotelsMockArray: HotelData[] = [
     hotelAddressFirstLine: "Lloret de Mar",
     hotelAddressSecondLine: "First Avenue",
     starRating: 3,
-    images: [{url: 'url', alt: 'alt'}],
-    roomsData: roomsMockArray,
+    images: [{ url: "url", alt: "alt" }],
+    roomsData: [
+      ...roomsMockArray,
+      {
+        id: "R04",
+        name: "Loft Apartament",
+        longDescription:
+          "Nunc ita separantur, ut disiuncta sint, quo nihil potest esse perversius.",
+        occupancy: { maxAdults: 2, maxChildren: 4, maxOverall: 6 },
+      },
+    ],
   },
 ];

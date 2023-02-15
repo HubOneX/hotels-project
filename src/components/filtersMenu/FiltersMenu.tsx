@@ -50,6 +50,7 @@ const FiltersMenu: FC<Props> = ({
             if (!newValue) return;
             setRating(newValue);
           }}
+          data-testid="StarRatingFilter"
         />
         <GuestsSelection
           guestType={GuestType.Adult}
