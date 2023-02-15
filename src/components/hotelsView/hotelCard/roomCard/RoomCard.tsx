@@ -1,8 +1,21 @@
 import { Box, Divider, Typography } from "@mui/material";
 import React, { FC } from "react";
 import { RoomData } from "../../../../types/DataTypes";
+import styled from "@emotion/styled";
+import breakpoints from "../../../../constants/breakpoints";
 
 type Props = RoomData;
+
+const RoomInfoContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: ${breakpoints.md}px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+`;
 
 const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
   return (
@@ -17,19 +30,11 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
         }}
         data-testid="RoomCard"
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "row", md: "column" },
-            justifyContent: {
-              xs: "flex-end",
-              md: "flex-start",
-            },
-            gap: { xs: "20px", md: 0 },
-            alignItems: { xs: "center", md: "flex-start" },
-          }}
-        >
-          <Typography variant="subtitle1" sx={{ marginRight: "auto", width: {xs: '50%' ,sm: 'auto'} }}>
+        <RoomInfoContainer>
+          <Typography
+            variant="subtitle1"
+            sx={{ marginRight: "auto", width: { xs: "50%", sm: "auto" } }}
+          >
             {name}
           </Typography>
           <Typography variant="subtitle2">
@@ -38,7 +43,7 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
           <Typography variant="subtitle2">
             Children: {occupancy.maxChildren}
           </Typography>
-        </Box>
+        </RoomInfoContainer>
         <Typography variant="body1" sx={{ width: "98%" }}>
           {longDescription}
         </Typography>

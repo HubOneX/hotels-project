@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Container } from "@mui/material";
 import React, { FC } from "react";
+import breakpoints from "../../../constants/breakpoints";
 import colors from "../../../constants/colors";
 import { HotelData } from "../../../types/DataTypes";
 import HotelImages from "./hotelImages/HotelImages";
@@ -20,9 +21,15 @@ const CardWrapper = styled(Box)({
   backgroundColor: colors.lightGrey,
 });
 
-const HotelHeader = styled(Box)({
-  display: "flex",
-});
+const HotelHeader = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  @media (max-width: ${breakpoints.md}px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+`;
 
 const HotelCard: FC<Props> = ({
   hotelName,
@@ -34,16 +41,7 @@ const HotelCard: FC<Props> = ({
 }) => {
   return (
     <CardWrapper data-testid="HotelCard">
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: {
-            xs: "column-reverse",
-            md: "row",
-          },
-          alignItems: { xs: "center", md: "flex-start" },
-        }}
-      >
+      <HotelHeader>
         <HotelImages images={images} />
         <HotelInformation
           hotelName={hotelName}
@@ -51,7 +49,7 @@ const HotelCard: FC<Props> = ({
           hotelAddressSecondLine={hotelAddressSecondLine}
           starRating={starRating}
         />
-      </Box>
+      </HotelHeader>
       {roomsData &&
         roomsData.length !== 0 &&
         roomsData.map((room) => {
