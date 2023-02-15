@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { RoomData } from "../../../../types/HotelTypes";
+import { RoomData } from "../../../../types/DataTypes";
 import RoomCard from "./RoomCard";
 
 const defaultProps: RoomData = {

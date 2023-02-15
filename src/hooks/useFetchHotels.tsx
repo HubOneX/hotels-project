@@ -1,5 +1,5 @@
 import urls from "../constants/urls";
-import { HotelData } from "../types/HotelTypes";
+import { HotelData } from "../types/DataTypes";
 import fetchUtils from "../utils/fetchUtils";
 
 const useFetchHotels = (

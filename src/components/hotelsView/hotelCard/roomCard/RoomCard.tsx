@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
 import React, { FC } from "react";
-import { RoomData } from "../../../../types/HotelTypes";
+import { RoomData } from "../../../../types/DataTypes";
 
 type Props = RoomData;
 
