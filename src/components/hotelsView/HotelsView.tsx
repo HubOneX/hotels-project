@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Container, Typography } from "@mui/material";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { HotelData } from "../../types/DataTypes";
 import HotelCard from "./hotelCard/HotelCard";
 

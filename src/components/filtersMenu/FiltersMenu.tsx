@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Container, Rating } from "@mui/material";
 import React, { FC } from "react";
+import breakpoints from "../../constants/breakpoints";
 import colors from "../../constants/colors";
 import { GuestType } from "../../enums/enums";
 import GuestsSelection from "./guestsSelection/GuestsSelection";
@@ -14,14 +15,24 @@ type Props = {
   setChildrenCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const FiltersCard = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: colors.lightGrey,
-  borderRadius: "8px",
-  boxShadow: `0px 8px 12px -8px ${colors.midGrey}`,
-});
+const FiltersCard = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${colors.lightGrey};
+  border-radius: 8px;
+  box-shadow: 0px 8px 12px -8px ${colors.midGrey};
+  flex-direction: row;
+  width: 600px;
+  padding: 10px;
+  gap: 22px;
+  @media (max-width: ${breakpoints.sm}px) {
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    gap: 5px;
+  }
+`;
 
 const FiltersMenu: FC<Props> = ({
   rating,
@@ -39,14 +50,7 @@ const FiltersMenu: FC<Props> = ({
         transform: { xs: "translateY(-85px)", sm: "translateY(-30px)" },
       }}
     >
-      <FiltersCard
-        sx={{
-          flexDirection: { xs: "column", sm: "row" },
-          width: { xs: "220px", sm: "600px" },
-          padding: { xs: "20px", sm: "10px" },
-          gap: { xs: "5px", sm: "22px" },
-        }}
-      >
+      <FiltersCard>
         <Rating
           value={rating}
           onChange={(_, newValue) => {

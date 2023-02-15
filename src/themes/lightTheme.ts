@@ -1,10 +1,20 @@
 import { createTheme } from "@mui/material/styles";
 import { lightBlue, pink } from "@mui/material/colors";
+import breakpoints from "../constants/breakpoints";
 
 const lightTheme = createTheme({
   palette: {
     primary: lightBlue,
     secondary: pink,
+  },
+  breakpoints: {
+    values: {
+      xs: breakpoints.xs,
+      sm: breakpoints.sm,
+      md: breakpoints.md,
+      lg: breakpoints.lg,
+      xl: breakpoints.xl,
+    },
   },
 });
 
