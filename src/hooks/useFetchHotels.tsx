@@ -59,8 +59,6 @@ const useFetchHotels = (
 
     const parsedHotels = parseFetchedHotelsData(fetchedHotels);
 
-    console.log(parsedHotels);
-
     await fetchRoomsForAllHotels(parsedHotels);
 
     setHotelsData(parsedHotels);
