@@ -3,20 +3,41 @@ import { hotelsMockArray } from "../../mocks/hotelsMockArray";
 import HotelsView from "./HotelsView";
 
 describe("HotelsView", () => {
-  it("should render 3 HotelCards when data for 3 cards is provided", () => {
-    render(<HotelsView hotelsData={hotelsMockArray} />);
+  describe("on initial load", () => {
+    it("should render 3 HotelCards when data for 3 cards is provided", () => {
+      render(<HotelsView hotelsData={hotelsMockArray} isInitialLoad={true} />);
 
-    const foundCards = screen.getAllByTestId("HotelCard");
-    expect(foundCards).toHaveLength(3);
+      const foundCards = screen.getAllByTestId("HotelCard");
+      expect(foundCards).toHaveLength(3);
+    });
+
+    it("should not render info text if there is no data provided", () => {
+      render(<HotelsView hotelsData={[]} isInitialLoad={true} />);
+
+      const foundCards = screen.queryAllByTestId("HotelCard");
+      expect(foundCards).toHaveLength(0);
+
+      const noHotelsInfo = screen.queryByTestId("NoHotelsInfo");
+      expect(noHotelsInfo).not.toBeInTheDocument();
+    });
   });
 
-  it("should render info text if there is no data provided", () => {
-    render(<HotelsView hotelsData={[]} />);
+  describe("not on initial load", () => {
+    it("should render 3 HotelCards when data for 3 cards is provided", () => {
+      render(<HotelsView hotelsData={hotelsMockArray} isInitialLoad={false} />);
 
-    const foundCards = screen.queryAllByTestId("HotelCard");
-    expect(foundCards).toHaveLength(0);
+      const foundCards = screen.getAllByTestId("HotelCard");
+      expect(foundCards).toHaveLength(3);
+    });
 
-    const noHotelsInfo = screen.getByTestId("NoHotelsInfo");
-    expect(noHotelsInfo).toBeInTheDocument();
+    it("should render info text if there is no data provided", () => {
+      render(<HotelsView hotelsData={[]} isInitialLoad={false} />);
+
+      const foundCards = screen.queryAllByTestId("HotelCard");
+      expect(foundCards).toHaveLength(0);
+
+      const noHotelsInfo = screen.getByTestId("NoHotelsInfo");
+      expect(noHotelsInfo).toBeInTheDocument();
+    });
   });
 });

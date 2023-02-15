@@ -13,6 +13,7 @@ import useRoomFilters from "./hooks/useRoomFilters";
 function App() {
   const [hotelsData, setHotelsData] = useState<HotelData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
 
   const [rating, setRating] = useState<number>(0);
   const [adultsCount, setAdultsCount] = useState<number>(0);
@@ -35,6 +36,8 @@ function App() {
     if (!hotelsData) return;
     setFilteredHotelsData(hotelsData);
     setIsLoading(false);
+    if (hotelsData.length === 0) return;
+    setIsInitialLoad(false);
   }, [hotelsData]);
 
   useEffect(() => {
@@ -68,6 +71,7 @@ function App() {
             <HotelsView
               hotelsData={filteredHotelsData}
               data-testid="HotelView"
+              isInitialLoad={isInitialLoad}
             />
           </>
         )}
