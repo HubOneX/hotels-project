@@ -17,7 +17,6 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "260px",
           }}
         >
           <Typography variant="h4">{name}</Typography>
@@ -28,7 +27,7 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
             Children: {occupancy.maxChildren}
           </Typography>
         </Box>
-        <Typography variant="body1" sx={{ width: "76%" }}>
+        <Typography variant="body1" sx={{ width: "98%" }}>
           {longDescription}
         </Typography>
       </Box>
