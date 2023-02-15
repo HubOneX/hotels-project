@@ -33,7 +33,14 @@ const GuestsSelection: FC<Props> = ({
   }, [isAdditionDisabled]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        marginLeft: { xs: "12px", sm: 0 },
+      }}
+    >
       <Typography variant="body2">{guestTypeSubtitle}:</Typography>
 
       <IconButton

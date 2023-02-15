@@ -25,17 +25,17 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
               xs: "flex-end",
               md: "flex-start",
             },
-            gap: { xs: "25px", md: 0 },
+            gap: { xs: "20px", md: 0 },
             alignItems: { xs: "center", md: "flex-start" },
           }}
         >
-          <Typography variant="h4" sx={{ marginRight: { xs: "auto" } }}>
+          <Typography variant="subtitle1" sx={{ marginRight: "auto", width: {xs: '50%' ,sm: 'auto'} }}>
             {name}
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle2">
             Adults: {occupancy.maxAdults}
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle2">
             Children: {occupancy.maxChildren}
           </Typography>
         </Box>
