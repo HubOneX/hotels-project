@@ -36,13 +36,13 @@ const FiltersMenu: FC<Props> = ({
       sx={{
         display: "flex",
         justifyContent: "center",
-        transform: "translateY(-30px)",
+        transform: { xs: "translateY(-85px)", sm: "translateY(-30px)" },
       }}
     >
       <FiltersCard
         sx={{
           flexDirection: { xs: "column", sm: "row" },
-          width: { xs: "250px", sm: "600px" },
+          width: { xs: "220px", sm: "600px" },
           padding: { xs: "20px", sm: "10px" },
           gap: { xs: "5px", sm: "22px" },
         }}
@@ -54,6 +54,7 @@ const FiltersMenu: FC<Props> = ({
             setRating(newValue);
           }}
           data-testid="StarRatingFilter"
+          sx={{ order: 2, marginTop: { xs: "5px", sm: 0 } }}
         />
         <GuestsSelection
           guestType={GuestType.Adult}

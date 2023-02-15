@@ -10,12 +10,12 @@ const HotelsContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  marginTop: "10px",
+  gap: "20px",
 });
 
 const HotelsView: FC<Props> = ({ hotelsData, isInitialLoad }) => {
   return (
-    <HotelsContainer>
+    <HotelsContainer sx={{ marginTop: { xs: "-45px", sm: "10px" } }}>
       {hotelsData && hotelsData.length !== 0
         ? hotelsData.map((hotel) => {
             return (
