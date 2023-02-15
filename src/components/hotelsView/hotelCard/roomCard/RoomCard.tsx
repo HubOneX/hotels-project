@@ -10,16 +10,28 @@ const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
       <Divider sx={{ margin: "14px 0" }} />
 
       <Box
-        sx={{ display: "grid", gridTemplateColumns: "250px 1fr", gap: "25px" }}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "250px 1fr" },
+          gap: "25px",
+        }}
         data-testid="RoomCard"
       >
         <Box
           sx={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: { xs: "row", md: "column" },
+            justifyContent: {
+              xs: "flex-end",
+              md: "flex-start",
+            },
+            gap: { xs: "25px", md: 0 },
+            alignItems: { xs: "center", md: "flex-start" },
           }}
         >
-          <Typography variant="h4">{name}</Typography>
+          <Typography variant="h4" sx={{ marginRight: { xs: "auto" } }}>
+            {name}
+          </Typography>
           <Typography variant="subtitle1">
             Adults: {occupancy.maxAdults}
           </Typography>
