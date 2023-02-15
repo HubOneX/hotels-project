@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import React, { FC } from "react";
 import { HotelData } from "../../types/DataTypes";
 import HotelCard from "./hotelCard/HotelCard";
@@ -10,13 +10,13 @@ const HotelsContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  marginTop: "10px"
+  marginTop: "10px",
 });
 
 const HotelsView: FC<Props> = ({ hotelsData }) => {
   return (
     <HotelsContainer>
-      {hotelsData &&
+      {hotelsData && hotelsData.length !== 0 ? (
         hotelsData.map((hotel) => {
           return (
             <HotelCard
@@ -30,7 +30,18 @@ const HotelsView: FC<Props> = ({ hotelsData }) => {
               key={hotel.id}
             />
           );
-        })}
+        })
+      ) : (
+        <Typography
+          variant="h4"
+          sx={{ textAlign: "center", marginTop: "30px", lineHeight: '35px' }}
+          data-testid='NoHotelsInfo'
+        >
+          Unfortunatelly, we couldn't find rooms meeting your requirements.
+          <br />
+          Please change your filters.
+        </Typography>
+      )}
     </HotelsContainer>
   );
 };
