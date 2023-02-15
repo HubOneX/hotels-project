@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../../constants/colors";
-import { HotelData } from "../../../types/HotelTypes";
+import { HotelData } from "../../../types/DataTypes";
 import HotelImages from "./hotelImages/HotelImages";
 import HotelInformation from "./hotelInformation/HotelInformation";
 import RoomCard from "./roomCard/RoomCard";

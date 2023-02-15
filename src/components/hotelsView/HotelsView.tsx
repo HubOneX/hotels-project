@@ -1,9 +1,17 @@
+import styled from "@emotion/styled";
+import { Container } from "@mui/material";
 import React, { FC } from "react";
-import { HotelData } from "../../types/HotelTypes";
+import { HotelData } from "../../types/DataTypes";
 import HotelCard from "./hotelCard/HotelCard";
-import HotelsContainer from "./hotelsContainer/HotelsContainer";
 
 type Props = { hotelsData: HotelData[] };
+
+const HotelsContainer = styled(Container)({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  marginTop: "10px"
+});
 
 const HotelsView: FC<Props> = ({ hotelsData }) => {
   return (

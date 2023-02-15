@@ -1,4 +1,4 @@
-import { HotelData } from "../types/HotelTypes";
+import { HotelData } from "../types/DataTypes";
 import fetchUtils from "../utils/fetchUtils";
 import useFetchHotels from "./useFetchHotels";
 

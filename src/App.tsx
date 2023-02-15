@@ -4,7 +4,7 @@ import AppContainer from "./components/appContainer/AppContainer";
 import HotelsView from "./components/hotelsView/HotelsView";
 import { ThemeProvider } from "@mui/material/styles";
 import lightTheme from "./themes/lightTheme";
-import { HotelData } from "./types/HotelTypes";
+import { HotelData } from "./types/DataTypes";
 import Loader from "./components/loader/Loader";
 import useFetchHotels from "./hooks/useFetchHotels";
 import FiltersMenu from "./components/filtersMenu/FiltersMenu";

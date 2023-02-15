@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { roomsMockArray } from "../../../mocks/roomsMockArray";
-import { HotelData } from "../../../types/HotelTypes";
+import { HotelData } from "../../../types/DataTypes";
 import HotelCard from "./HotelCard";
 
 describe("HotelCard", () => {

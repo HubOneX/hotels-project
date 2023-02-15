@@ -3,7 +3,7 @@ import React, { FC, useState } from "react";
 import Image from "mui-image";
 import ArrowRightIcon from "@mui//icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui//icons-material/ArrowLeft";
-import { ImageWithAlt } from "../../../../types/HotelTypes";
+import { ImageWithAlt } from "../../../../types/DataTypes";
 import colors from "../../../../constants/colors";
 
 type Props = {

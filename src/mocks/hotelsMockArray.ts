@@ -1,4 +1,4 @@
-import { HotelData } from "../types/HotelTypes";
+import { HotelData } from "../types/DataTypes";
 import { roomsMockArray } from "./roomsMockArray";
 
 export const hotelsMockArray: HotelData[] = [
