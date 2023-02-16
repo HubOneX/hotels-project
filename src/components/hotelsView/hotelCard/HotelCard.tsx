@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { FC } from "react";
 import breakpoints from "../../../constants/breakpoints";
 import colors from "../../../constants/colors";

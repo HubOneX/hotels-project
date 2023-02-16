@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AppContainer from "./components/appContainer/AppContainer";
 import HotelsView from "./components/hotelsView/HotelsView";
