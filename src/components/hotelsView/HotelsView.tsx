@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import React, { FC } from "react";
 import { HotelData } from "../../types/DataTypes";
 import HotelCard from "./hotelCard/HotelCard";
+import NoHotelsFoundInfo from "./hotelCard/noHotelsFoundInfo/NoHotelsFoundInfo";
 
 type Props = { hotelsData: HotelData[]; isInitialLoad: boolean };
 
@@ -10,7 +11,9 @@ const HotelsContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  alignItems: "center",
   gap: "20px",
+  minHeight: "50vh",
 });
 
 const HotelsView: FC<Props> = ({ hotelsData, isInitialLoad }) => {
@@ -31,21 +34,7 @@ const HotelsView: FC<Props> = ({ hotelsData, isInitialLoad }) => {
               />
             );
           })
-        : !isInitialLoad && (
-            <Typography
-              variant="h4"
-              sx={{
-                textAlign: "center",
-                marginTop: "30px",
-                lineHeight: "35px",
-              }}
-              data-testid="NoHotelsInfo"
-            >
-              Unfortunatelly, we couldn't find rooms meeting your requirements.
-              <br />
-              Please change your filters.
-            </Typography>
-          )}
+        : !isInitialLoad && <NoHotelsFoundInfo />}
     </HotelsContainer>
   );
 };

@@ -42,6 +42,14 @@ const FiltersMenu: FC<Props> = ({
   childrenCount,
   setChildrenCount,
 }) => {
+  const handleOnChange = (
+    event: React.SyntheticEvent<Element, Event>,
+    newValue: number | null
+  ) => {
+    if (!newValue) return;
+    setRating(newValue);
+  };
+
   return (
     <Container
       sx={{
@@ -53,16 +61,13 @@ const FiltersMenu: FC<Props> = ({
       <FiltersCard>
         <Rating
           value={rating}
-          onChange={(_, newValue) => {
-            if (!newValue) return;
-            setRating(newValue);
-          }}
+          onChange={handleOnChange}
           data-testid="StarRatingFilter"
           sx={{
             marginBottom: { xs: "2px", sm: 0 },
             marginRight: { xs: 0, sm: "7px" },
           }}
-        /> 
+        />
         <GuestsSelection
           guestType={GuestType.Adult}
           currentCount={adultsCount}

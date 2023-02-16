@@ -28,6 +28,9 @@ const GuestsSelection: FC<Props> = ({
 
   const guestTypeSubtitle = getGuestTypeSubtitle(guestType);
 
+  const handleAddClick = () => setCurrentCount(currentCount + 1);
+  const handleSubtractCLick = () => setCurrentCount(currentCount - 1);
+
   useEffect(() => {
     setCurrentCount(0);
   }, [isAdditionDisabled]);
@@ -43,17 +46,11 @@ const GuestsSelection: FC<Props> = ({
     >
       <Typography variant="body2">{guestTypeSubtitle}:</Typography>
 
-      <IconButton
-        onClick={() => setCurrentCount(currentCount + 1)}
-        disabled={isAdditionDisabled}
-      >
+      <IconButton onClick={handleAddClick} disabled={isAdditionDisabled}>
         <AddIcon />
       </IconButton>
       <Typography variant="body2">{currentCount}</Typography>
-      <IconButton
-        disabled={currentCount <= 0}
-        onClick={() => setCurrentCount(currentCount - 1)}
-      >
+      <IconButton onClick={handleSubtractCLick} disabled={currentCount <= 0}>
         <RemoveIcon />
       </IconButton>
     </Box>

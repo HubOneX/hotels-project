@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AppContainer from "./components/appContainer/AppContainer";
 import HotelsView from "./components/hotelsView/HotelsView";
 import { ThemeProvider } from "@mui/material/styles";
 import lightTheme from "./themes/lightTheme";
@@ -9,6 +8,18 @@ import useFetchHotels from "./hooks/useFetchHotels";
 import FiltersMenu from "./components/filtersMenu/FiltersMenu";
 import useRoomFilters from "./hooks/useRoomFilters";
 import Hero from "./components/hero/Hero";
+import Footer from "./components/footer/Footer";
+import styled from "@emotion/styled";
+import { Container } from "@mui/material";
+
+const AppContainer = styled(Container)({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  width: "100%",
+  maxWidth: "100% !important",
+  padding: '0 !important',
+});
 
 function App() {
   const [hotelsData, setHotelsData] = useState<HotelData[]>([]);
@@ -27,6 +38,8 @@ function App() {
     adultsCount,
     childrenCount
   );
+
+  const isFooterFixedAtBottom = !hotelsData || filteredHotelsData.length === 0;
 
   useEffect(() => {
     fetchHotels();
@@ -47,26 +60,25 @@ function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <AppContainer>
+        <Hero />
+        <FiltersMenu
+          rating={rating}
+          setRating={setRating}
+          adultsCount={adultsCount}
+          setAdultsCount={setAdultsCount}
+          childrenCount={childrenCount}
+          setChildrenCount={setChildrenCount}
+        />
         {isLoading ? (
           <Loader data-testid="Loader" />
         ) : (
-          <>
-            <Hero />
-            <FiltersMenu
-              rating={rating}
-              setRating={setRating}
-              adultsCount={adultsCount}
-              setAdultsCount={setAdultsCount}
-              childrenCount={childrenCount}
-              setChildrenCount={setChildrenCount}
-            />
-            <HotelsView
-              hotelsData={filteredHotelsData}
-              data-testid="HotelView"
-              isInitialLoad={isInitialLoad}
-            />
-          </>
+          <HotelsView
+            hotelsData={filteredHotelsData}
+            data-testid="HotelView"
+            isInitialLoad={isInitialLoad}
+          />
         )}
+        <Footer fixedAtBottom={isFooterFixedAtBottom} />
       </AppContainer>
     </ThemeProvider>
   );
