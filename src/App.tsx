@@ -9,6 +9,7 @@ import Loader from "./components/loader/Loader";
 import useFetchHotels from "./hooks/useFetchHotels";
 import FiltersMenu from "./components/filtersMenu/FiltersMenu";
 import useRoomFilters from "./hooks/useRoomFilters";
+import Hero from "./components/hero/Hero";
 
 function App() {
   const [hotelsData, setHotelsData] = useState<HotelData[]>([]);
@@ -19,7 +20,7 @@ function App() {
   const [adultsCount, setAdultsCount] = useState<number>(0);
   const [childrenCount, setChildrenCount] = useState<number>(0);
 
-  const [filteredHotelsData, setFilteredHotelsData] = useState<HotelData[]>([])
+  const [filteredHotelsData, setFilteredHotelsData] = useState<HotelData[]>([]);
   const { fetchHotels } = useFetchHotels(setHotelsData);
   const { filterRooms } = useRoomFilters(
     hotelsData,
@@ -46,20 +47,12 @@ function App() {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <AppContainer>  
+      <AppContainer>
         {isLoading ? (
           <Loader data-testid="Loader" />
         ) : (
           <>
-            <Box
-              sx={{
-                backgroundColor: "skyblue",
-                width: "100%",
-                height: "300px",
-              }}
-            >
-              <Typography>This is a Hero</Typography>
-            </Box>
+            <Hero />
             <FiltersMenu
               rating={rating}
               setRating={setRating}
