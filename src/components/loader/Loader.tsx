@@ -9,7 +9,7 @@ const Loader = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginTop: "40vh",
+        marginTop: "5vh",
       }}
     >
       <Typography sx={{ marginBottom: "20px", fontSize: "20px" }}>

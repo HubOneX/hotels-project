@@ -5,6 +5,14 @@ import ArrowRightIcon from "@mui//icons-material/ArrowRight";
 import ArrowLeftIcon from "@mui//icons-material/ArrowLeft";
 import { ImageWithAlt } from "../../../../types/DataTypes";
 import colors from "../../../../constants/colors";
+import styled from "@emotion/styled";
+
+const PositionedIconButton = styled(IconButton)({
+  position: "absolute",
+  top: "calc(50% - 25px)",
+  zIndex: "100",
+  color: colors.white,
+});
 
 type Props = {
   images: ImageWithAlt[];
@@ -13,43 +21,30 @@ type Props = {
 const HotelImages: FC<Props> = ({ images }) => {
   const [index, setIndex] = useState<number>(0);
 
+  const handleNextClick = () => {
+    index !== images.length - 1 ? setIndex(index + 1) : setIndex(0);
+  };
+
+  const handlePreviousClick = () => {
+    index !== 0 ? setIndex(index - 1) : setIndex(images.length - 1);
+  };
+
   return (
     <Box sx={{ position: "relative" }}>
-      <IconButton
-        onClick={() => {
-          index !== 0 ? setIndex(index - 1) : setIndex(images.length - 1);
-        }}
-        sx={{
-          position: "absolute",
-          top: "calc(50% - 25px)",
-          left: "5px",
-          zIndex: "100",
-          color: colors.white,
-        }}
-      >
+      <PositionedIconButton onClick={handlePreviousClick} sx={{ left: "5px" }}>
         <ArrowLeftIcon fontSize="large" />
-      </IconButton>
+      </PositionedIconButton>
       <Image
         src={images[index].url}
         alt={images[index].alt}
+        duration={400}
         height="150px"
         width="250px"
         fit="cover"
       />
-      <IconButton
-        onClick={() => {
-          index !== images.length - 1 ? setIndex(index + 1) : setIndex(0);
-        }}
-        sx={{
-          position: "absolute",
-          top: "calc(50% - 25px)",
-          right: "5px",
-          zIndex: "100",
-          color: colors.white,
-        }}
-      >
+      <PositionedIconButton onClick={handleNextClick} sx={{ right: "5px" }}>
         <ArrowRightIcon fontSize="large" />
-      </IconButton>
+      </PositionedIconButton>
     </Box>
   );
 };
