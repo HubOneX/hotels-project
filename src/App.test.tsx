@@ -4,7 +4,7 @@ import App from "./App";
 describe("App", () => {
   it("should render Hero", () => {
     render(<App />);
-    const foundElement = screen.getByText("This is a Hero");
+    const foundElement = screen.getByText("HotelsFindr");
     expect(foundElement).toBeInTheDocument();
   });
 
