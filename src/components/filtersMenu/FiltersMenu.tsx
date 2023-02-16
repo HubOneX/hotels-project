@@ -58,8 +58,11 @@ const FiltersMenu: FC<Props> = ({
             setRating(newValue);
           }}
           data-testid="StarRatingFilter"
-          sx={{ order: 2, marginTop: { xs: "5px", sm: 0 } }}
-        />
+          sx={{
+            marginBottom: { xs: "2px", sm: 0 },
+            marginRight: { xs: 0, sm: "7px" },
+          }}
+        /> 
         <GuestsSelection
           guestType={GuestType.Adult}
           currentCount={adultsCount}
