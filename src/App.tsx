@@ -31,7 +31,7 @@ function App() {
   const [childrenCount, setChildrenCount] = useState<number>(0);
 
   const [filteredHotelsData, setFilteredHotelsData] = useState<HotelData[]>([]);
-  const { fetchAndSetHotels } = useFetchHotels(setHotelsData);
+  const { fetchHotels } = useFetchHotels();
   const { filterRooms } = useRoomFilters(
     hotelsData,
     rating,
@@ -40,9 +40,14 @@ function App() {
   );
 
   const isFooterFixedAtBottom = !hotelsData || filteredHotelsData.length === 0;
+  
+  const setFetchedHotels = async () => {
+    const fetchedHotelsData = await fetchHotels();
+    setHotelsData(fetchedHotelsData);
+  }
 
   useEffect(() => {
-    fetchAndSetHotels();
+    setFetchedHotels()
   }, []);
 
   useEffect(() => {

@@ -2,9 +2,7 @@ import urls from "../constants/urls";
 import { HotelData } from "../types/DataTypes";
 import fetchUtils from "../utils/fetchUtils";
 
-const useFetchHotels = (
-  setHotelsData: React.Dispatch<React.SetStateAction<HotelData[]>>
-) => {
+const useFetchHotels = () => {
   const parseFetchedHotelsData = (fetchedHotels: any) => {
     if (!fetchedHotels || fetchedHotels.length === 0) return [];
 
@@ -52,7 +50,7 @@ const useFetchHotels = (
     }
   };
 
-  const fetchAndSetHotels = async () => {
+  const fetchHotels = async () => {
     const fetchedHotels = await fetchUtils.fetchAndParseToJson(
       urls.fetchHotelsDataUrl
     );
@@ -61,7 +59,7 @@ const useFetchHotels = (
 
     await fetchRoomsForAllHotels(parsedHotels);
 
-    setHotelsData(parsedHotels);
+    return parsedHotels;
   };
 
   const _forTestsOnly = {
@@ -71,7 +69,7 @@ const useFetchHotels = (
     fetchRoomsForAllHotels,
   };
 
-  return { fetchAndSetHotels, _forTestsOnly };
+  return { fetchHotels, _forTestsOnly };
 };
 
 export default useFetchHotels;
