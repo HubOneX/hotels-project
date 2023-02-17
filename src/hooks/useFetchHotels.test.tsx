@@ -115,8 +115,8 @@ describe("useFetchHotels", () => {
 
   describe("fetchHotels", () => {
     it("should call setHotelData on the end of the function", async () => {
-      const { fetchHotels } = useFetchHotels(setHotelsDataSpy);
-      await fetchHotels();
+      const { fetchAndSetHotels } = useFetchHotels(setHotelsDataSpy);
+      await fetchAndSetHotels();
       expect(setHotelsDataSpy).toBeCalled();
     });
   });

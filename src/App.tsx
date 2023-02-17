@@ -18,7 +18,7 @@ const AppContainer = styled(Container)({
   justifyContent: "space-between",
   width: "100%",
   maxWidth: "100% !important",
-  padding: '0 !important',
+  padding: "0 !important",
 });
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
   const [childrenCount, setChildrenCount] = useState<number>(0);
 
   const [filteredHotelsData, setFilteredHotelsData] = useState<HotelData[]>([]);
-  const { fetchHotels } = useFetchHotels(setHotelsData);
+  const { fetchAndSetHotels } = useFetchHotels(setHotelsData);
   const { filterRooms } = useRoomFilters(
     hotelsData,
     rating,
@@ -42,7 +42,7 @@ function App() {
   const isFooterFixedAtBottom = !hotelsData || filteredHotelsData.length === 0;
 
   useEffect(() => {
-    fetchHotels();
+    fetchAndSetHotels();
   }, []);
 
   useEffect(() => {

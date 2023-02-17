@@ -52,7 +52,7 @@ const useFetchHotels = (
     }
   };
 
-  const fetchHotels = async () => {
+  const fetchAndSetHotels = async () => {
     const fetchedHotels = await fetchUtils.fetchAndParseToJson(
       urls.fetchHotelsDataUrl
     );
@@ -71,7 +71,7 @@ const useFetchHotels = (
     fetchRoomsForAllHotels,
   };
 
-  return { fetchHotels, _forTestsOnly };
+  return { fetchAndSetHotels, _forTestsOnly };
 };
 
 export default useFetchHotels;
