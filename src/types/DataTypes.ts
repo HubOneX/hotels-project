@@ -14,7 +14,7 @@ export type ImageWithAlt = {
 }
 
 export type RoomData = {
-  id?: string;
+  id: string;
   name: string;
   longDescription: string;
   occupancy: Occupancy;

@@ -21,12 +21,15 @@ type Props = {
 const HotelImages: FC<Props> = ({ images }) => {
   const [index, setIndex] = useState<number>(0);
 
+  const isLastImage = index === images.length - 1;
+  const isFirstImage = index === 0;
+
   const handleNextClick = () => {
-    index !== images.length - 1 ? setIndex(index + 1) : setIndex(0);
+    isLastImage ? setIndex(0) : setIndex(index + 1);
   };
 
   const handlePreviousClick = () => {
-    index !== 0 ? setIndex(index - 1) : setIndex(images.length - 1);
+    isFirstImage ? setIndex(images.length - 1) : setIndex(index - 1);
   };
 
   return (
@@ -34,6 +37,7 @@ const HotelImages: FC<Props> = ({ images }) => {
       <PositionedIconButton onClick={handlePreviousClick} sx={{ left: "5px" }}>
         <ArrowLeftIcon fontSize="large" />
       </PositionedIconButton>
+
       <Image
         src={images[index].url}
         alt={images[index].alt}
@@ -42,6 +46,7 @@ const HotelImages: FC<Props> = ({ images }) => {
         width="250px"
         fit="cover"
       />
+
       <PositionedIconButton onClick={handleNextClick} sx={{ right: "5px" }}>
         <ArrowRightIcon fontSize="large" />
       </PositionedIconButton>
