@@ -49,7 +49,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!hotelsData) return;
+    if (hotelsData.length === 0 && isInitialLoad) return;
     setFilteredHotelsData(hotelsData);
     setIsLoading(false);
 
