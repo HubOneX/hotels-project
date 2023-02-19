@@ -2,15 +2,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import HotelImages from "./HotelImages";
 
 describe("HotelImages", () => {
+  const defaultProps = {
+    images: [
+      { url: "url1", alt: "alt1" },
+      { url: "url2", alt: "alt2" },
+    ],
+  };
+
   it("should change image to next one if the forward button is clicked and back to first if array ended", () => {
-    render(
-      <HotelImages
-        images={[
-          { url: "url1", alt: "alt1" },
-          { url: "url2", alt: "alt2" },
-        ]}
-      />
-    );
+    render(<HotelImages {...defaultProps} />);
 
     let foundImage1 = screen.queryByAltText("alt1");
     let foundImage2 = screen.queryByAltText("alt2");
@@ -38,14 +38,7 @@ describe("HotelImages", () => {
   });
 
   it("should change image to previous one if the back button is clicked and to last if it was the first image", () => {
-    render(
-      <HotelImages
-        images={[
-          { url: "url1", alt: "alt1" },
-          { url: "url2", alt: "alt2" },
-        ]}
-      />
-    );
+    render(<HotelImages {...defaultProps} />);
 
     let foundImage1 = screen.queryByAltText("alt1");
     let foundImage2 = screen.queryByAltText("alt2");

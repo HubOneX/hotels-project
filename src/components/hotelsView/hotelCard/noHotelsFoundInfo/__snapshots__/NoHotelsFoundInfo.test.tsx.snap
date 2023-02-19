@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoHotelsFoundInfo should match the snapshot 1`] = `
+<h4
+  className="MuiTypography-root MuiTypography-h4 css-15u64ck-MuiTypography-root"
+  data-testid="NoHotelsInfo"
+>
+  Unfortunatelly, we couldn't find rooms meeting your requirements.
+  <br />
+  Please change your filters.
+</h4>
+`;
