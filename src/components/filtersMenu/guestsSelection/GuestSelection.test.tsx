@@ -10,6 +10,10 @@ describe("GuestSelection", () => {
     isAdditionDisabled: false,
   };
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should increment counter if add button clicked", async () => {
     render(<GuestsSelection {...defaultProps} />);
 
