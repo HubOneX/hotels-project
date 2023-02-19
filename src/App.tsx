@@ -78,8 +78,8 @@ function App() {
         ) : (
           <HotelsView
             hotelsData={filteredHotelsData}
-            isInitialLoad={isInitialLoad}
             data-testid="HotelView"
+            isInitialLoad={isInitialLoad}
           />
         )}
         <Footer fixedAtBottom={isFooterFixedAtBottom} />

@@ -87,7 +87,8 @@ describe("useFetchHotels", () => {
   describe("fetchRoomsForSingularHotel", () => {
     it("should return parsed rooms data for singular hotel", async () => {
       jest
-        .spyOn(fetchUtils, "fetchAndParseToJson")
+        .spyOn(fetchUtils, "fetchRoomsDataForHotelId")
+        //@ts-ignore
         .mockReturnValue(Promise.resolve(mockRoomsData));
       const { _forTestsOnly } = useFetchHotels();
       const parsedRooms = await _forTestsOnly.fetchRoomsForSingularHotel("id");
@@ -98,8 +99,8 @@ describe("useFetchHotels", () => {
 
   describe("fetchRoomsForAllHotels", () => {
     it("should call fetchAndParseToJson X times", async () => {
-      const fetchAndParseSpy = jest
-        .spyOn(fetchUtils, "fetchAndParseToJson")
+      const fetchRoomsDataForHotelIdSpy = jest
+        .spyOn(fetchUtils, "fetchRoomsDataForHotelId")
         .mockImplementation();
       const { _forTestsOnly } = useFetchHotels();
       await _forTestsOnly.fetchRoomsForAllHotels([
@@ -107,14 +108,15 @@ describe("useFetchHotels", () => {
         { id: "2" } as HotelData,
       ]);
 
-      expect(fetchAndParseSpy).toBeCalledTimes(2);
+      expect(fetchRoomsDataForHotelIdSpy).toBeCalledTimes(2);
     });
   });
 
   describe("fetchHotels", () => {
     it("should return parsed hotels data", async () => {
       jest
-        .spyOn(fetchUtils, "fetchAndParseToJson")
+        .spyOn(fetchUtils, "fetchHotelData")
+        //@ts-ignore
         .mockReturnValue(Promise.resolve(mockHotelsData));
       const { fetchHotels } = useFetchHotels();
       const result = await fetchHotels();

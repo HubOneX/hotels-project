@@ -1,4 +1,3 @@
-import urls from "../../constants/urls";
 import { HotelData } from "../../types/DataTypes";
 import fetchUtils from "../../utils/fetchUtils";
 
@@ -37,9 +36,7 @@ const useFetchHotels = () => {
   };
 
   const fetchRoomsForSingularHotel = async (hotelId: string) => {
-    const fetchedRooms = await fetchUtils.fetchAndParseToJson(
-      urls.fetchHotelRoomsDataUrl + hotelId
-    );
+    const fetchedRooms = await fetchUtils.fetchRoomsDataForHotelId(hotelId);
 
     return parseFetchedRoomsData(fetchedRooms);
   };
@@ -51,9 +48,7 @@ const useFetchHotels = () => {
   };
 
   const fetchHotels = async () => {
-    const fetchedHotels = await fetchUtils.fetchAndParseToJson(
-      urls.fetchHotelsDataUrl
-    );
+    const fetchedHotels = await fetchUtils.fetchHotelData();
 
     const parsedHotels = parseFetchedHotelsData(fetchedHotels);
 
