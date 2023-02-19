@@ -1,22 +1,17 @@
-import RoomCard from "./RoomCard";
+import RoomInformation from "./RoomInformation";
 import renderer from "react-test-renderer";
 
-const defaultProps = {
-  room: {
-    id: "R01",
+describe("RoomInformation", () => {
+  const defaultProps = {
     name: "Room",
-    longDescription: "description",
     occupancy: {
       maxAdults: 2,
       maxChildren: 1,
       maxOverall: 3,
     },
-  },
-};
-
-describe("RoomCard", () => {
+  };
   it("should match the snapshot", () => {
-    const container = renderer.create(<RoomCard {...defaultProps} />);
+    const container = renderer.create(<RoomInformation {...defaultProps} />);
 
     expect(container).toMatchSnapshot();
   });

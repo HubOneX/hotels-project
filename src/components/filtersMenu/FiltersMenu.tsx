@@ -4,7 +4,7 @@ import React, { FC, SyntheticEvent } from "react";
 import breakpoints from "../../constants/breakpoints";
 import colors from "../../constants/colors";
 import { GuestType } from "../../enums/enums";
-import { DispatchSetState } from "../../types/GenericTypes";
+import { DispatchSetState, Nullable } from "../../types/GenericTypes";
 import {
   FlexCenteredBox,
   FlexCenteredContainer,
@@ -48,7 +48,7 @@ const FiltersMenu: FC<Props> = ({
 }) => {
   const handleOnChange = (
     event: SyntheticEvent<Element, Event>,
-    newValue: number | null
+    newValue: Nullable<number>
   ) => {
     if (!newValue) return;
     setRating(newValue);
