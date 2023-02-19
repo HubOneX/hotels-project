@@ -52,8 +52,6 @@ function App() {
     if (hotelsData.length === 0 && isInitialLoad) return;
     setFilteredHotelsData(hotelsData);
     setIsLoading(false);
-
-    if (hotelsData.length === 0) return;
     setIsInitialLoad(false);
   }, [hotelsData]);
 
