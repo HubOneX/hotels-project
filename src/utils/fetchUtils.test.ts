@@ -9,6 +9,12 @@ jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("fetchUtils", () => {
+  let errorSpy: jest.SpyInstance<void>;
+
+  beforeEach(() => {
+    errorSpy = jest.spyOn(console, "error").mockImplementation();
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -37,6 +43,7 @@ describe("fetchUtils", () => {
       const result = await fetchUtils.fetchHotelData();
 
       expect(mockedAxios.get).toHaveBeenCalledWith(urls.fetchHotelsDataUrl);
+      expect(errorSpy).toHaveBeenCalled();
       expect(result).toEqual(undefined);
     });
   });
@@ -69,6 +76,7 @@ describe("fetchUtils", () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
         urls.fetchHotelRoomsDataUrl + "id1"
       );
+      expect(errorSpy).toHaveBeenCalled();
       expect(result).toEqual(undefined);
     });
   });
