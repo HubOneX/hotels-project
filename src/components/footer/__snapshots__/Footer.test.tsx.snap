@@ -2,7 +2,7 @@
 
 exports[`Footer should match the snapshot 1`] = `
 <div
-  className="MuiBox-root css-d3g2a8"
+  className="MuiBox-root css-1x3cxik"
 >
   <p
     className="MuiTypography-root MuiTypography-body1 css-19k4ldb-MuiTypography-root"

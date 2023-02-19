@@ -2,10 +2,10 @@
 
 exports[`FiltersMenu should match the snapshot 1`] = `
 <div
-  className="MuiContainer-root MuiContainer-maxWidthLg css-i6mp9b-MuiContainer-root"
+  className="MuiContainer-root MuiContainer-maxWidthLg css-11pq5kd-MuiContainer-root"
 >
   <div
-    className="MuiBox-root css-t39313"
+    className="MuiBox-root css-rac91x"
   >
     <span
       aria-label={null}
