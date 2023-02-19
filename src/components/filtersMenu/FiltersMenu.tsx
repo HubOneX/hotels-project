@@ -1,18 +1,20 @@
 import styled from "@emotion/styled";
-import { Box, Container, Rating } from "@mui/material";
-import React, { FC } from "react";
+import { Box, Rating } from "@mui/material";
+import React, { FC, SyntheticEvent } from "react";
 import breakpoints from "../../constants/breakpoints";
 import colors from "../../constants/colors";
 import { GuestType } from "../../enums/enums";
+import { DispatchSetState } from "../../types/GenericTypes";
+import { FlexCenteredContainer } from "../utilityComponents/styledComponents";
 import GuestsSelection from "./guestsSelection/GuestsSelection";
 
 type Props = {
   rating: number;
-  setRating: React.Dispatch<React.SetStateAction<number>>;
+  setRating: DispatchSetState<number>;
   adultsCount: number;
-  setAdultsCount: React.Dispatch<React.SetStateAction<number>>;
+  setAdultsCount: DispatchSetState<number>;
   childrenCount: number;
-  setChildrenCount: React.Dispatch<React.SetStateAction<number>>;
+  setChildrenCount: DispatchSetState<number>;
 };
 
 const FiltersCard = styled(Box)`
@@ -43,7 +45,7 @@ const FiltersMenu: FC<Props> = ({
   setChildrenCount,
 }) => {
   const handleOnChange = (
-    event: React.SyntheticEvent<Element, Event>,
+    event: SyntheticEvent<Element, Event>,
     newValue: number | null
   ) => {
     if (!newValue) return;
@@ -51,10 +53,8 @@ const FiltersMenu: FC<Props> = ({
   };
 
   return (
-    <Container
+    <FlexCenteredContainer
       sx={{
-        display: "flex",
-        justifyContent: "center",
         transform: { xs: "translateY(-85px)", sm: "translateY(-30px)" },
       }}
     >
@@ -80,7 +80,7 @@ const FiltersMenu: FC<Props> = ({
           isAdditionDisabled={adultsCount === 0}
         />
       </FiltersCard>
-    </Container>
+    </FlexCenteredContainer>
   );
 };
 

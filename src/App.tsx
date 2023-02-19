@@ -4,9 +4,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import lightTheme from "./themes/lightTheme";
 import { HotelData } from "./types/DataTypes";
 import Loader from "./components/loader/Loader";
-import useFetchHotels from "./hooks/useFetchHotels";
+import useFetchHotels from "./hooks/useFetchHotels/useFetchHotels";
 import FiltersMenu from "./components/filtersMenu/FiltersMenu";
-import useRoomFilters from "./hooks/useRoomFilters";
+import useRoomFilters from "./hooks/useRoomFilters/useRoomFilters";
 import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/Footer";
 import styled from "@emotion/styled";
@@ -40,14 +40,14 @@ function App() {
   );
 
   const isFooterFixedAtBottom = !hotelsData || filteredHotelsData.length === 0;
-  
+
   const setFetchedHotels = async () => {
     const fetchedHotelsData = await fetchHotels();
     setHotelsData(fetchedHotelsData);
-  }
+  };
 
   useEffect(() => {
-    setFetchedHotels()
+    setFetchedHotels();
   }, []);
 
   useEffect(() => {
