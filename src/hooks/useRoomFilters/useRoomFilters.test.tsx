@@ -1,4 +1,4 @@
-import { hotelsMockArray } from "../mocks/hotelsMockArray";
+import { hotelsMockArray } from "../../mocks/hotelsMockArray";
 import useRoomFilters from "./useRoomFilters";
 
 describe("useRoomFilters", () => {

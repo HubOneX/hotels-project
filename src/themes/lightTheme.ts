@@ -21,28 +21,27 @@ const lightTheme = createTheme({
 
 lightTheme.typography.h1 = {
   fontWeight: 300,
-  letterSpacing: '1.5px',
+  letterSpacing: "1.5px",
   fontSize: "98px",
   marginTop: "60px",
   textAlign: "center",
   color: colors.white,
   [lightTheme.breakpoints.down("sm")]: {
     fontSize: "65px",
-  letterSpacing: '1px',
-
+    letterSpacing: "1px",
   },
 };
 
 lightTheme.typography.h2 = {
   fontWeight: 100,
-  letterSpacing: '2.5px',
+  letterSpacing: "2.5px",
   fontSize: "44px",
-  margin: '12px 90px 0 20px',
+  margin: "12px 90px 0 20px",
   textAlign: "right",
   color: colors.white,
   [lightTheme.breakpoints.down("sm")]: {
     fontSize: "32px",
-    margin: '0 5vw 0 0'
+    margin: "0 5vw 0 0",
   },
 };
 
@@ -89,6 +88,9 @@ lightTheme.typography.body1 = {
   [lightTheme.breakpoints.down("sm")]: {
     fontSize: "12px",
     lineHeight: "18px",
+  },
+  [lightTheme.breakpoints.down("md")]: {
+    textAlign: "justify",
   },
 };
 

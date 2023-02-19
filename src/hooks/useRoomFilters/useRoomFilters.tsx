@@ -1,4 +1,4 @@
-import { HotelData } from "../types/DataTypes";
+import { HotelData } from "../../types/DataTypes";
 
 const useRoomFilters = (
   hotelsData: HotelData[],

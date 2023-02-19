@@ -10,10 +10,10 @@ type Props = {
 };
 
 const HotelInformationWrapper = styled(Box)({
-  marginLeft: "25px",
   display: "flex",
   justifyContent: "space-between",
   width: "100%",
+  marginLeft: "25px",
 });
 
 const HotelInformation: FC<Props> = ({

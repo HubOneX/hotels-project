@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should match the snapshot 1`] = `
+<div
+  className="MuiBox-root css-1x3cxik"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body1 css-19k4ldb-MuiTypography-root"
+  >
+    Made by 
+    <a
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-1mz76tb-MuiTypography-root-MuiLink-root"
+      href="https://github.com/HubOneX"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      target="_blank"
+    >
+      Hubert Dardzinski
+    </a>
+     for a technical interview.
+  </p>
+</div>
+`;

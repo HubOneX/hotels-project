@@ -1,6 +1,6 @@
-import urls from "../constants/urls";
-import { HotelData } from "../types/DataTypes";
-import fetchUtils from "../utils/fetchUtils";
+import urls from "../../constants/urls";
+import { HotelData } from "../../types/DataTypes";
+import fetchUtils from "../../utils/fetchUtils";
 
 const useFetchHotels = () => {
   const parseFetchedHotelsData = (fetchedHotels: any) => {

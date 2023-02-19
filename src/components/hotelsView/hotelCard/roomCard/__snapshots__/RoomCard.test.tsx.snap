@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoomCard should match the snapshot 1`] = `
+Array [
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth css-1jod6p6-MuiDivider-root"
+  />,
+  <div
+    className="MuiBox-root css-5k4vvv"
+    data-testid="RoomCard"
+  >
+    <div
+      className="MuiContainer-root MuiContainer-maxWidthLg css-pwxgjm-MuiContainer-root"
+    >
+      <h6
+        className="MuiTypography-root MuiTypography-subtitle1 css-1f9ga5n-MuiTypography-root"
+      >
+        Room
+      </h6>
+      <h6
+        className="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+      >
+        Adults: 
+        2
+      </h6>
+      <h6
+        className="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+      >
+        Children: 
+        1
+      </h6>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-18g6yeb-MuiTypography-root"
+    >
+      description
+    </p>
+  </div>,
+]
+`;

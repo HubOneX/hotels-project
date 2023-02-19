@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoomInformation should match the snapshot 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg css-pwxgjm-MuiContainer-root"
+>
+  <h6
+    className="MuiTypography-root MuiTypography-subtitle1 css-1f9ga5n-MuiTypography-root"
+  >
+    Room
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+  >
+    Adults: 
+    2
+  </h6>
+  <h6
+    className="MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root"
+  >
+    Children: 
+    1
+  </h6>
+</div>
+`;

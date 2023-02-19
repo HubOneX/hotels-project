@@ -1,5 +1,5 @@
-import { HotelData } from "../types/DataTypes";
-import fetchUtils from "../utils/fetchUtils";
+import { HotelData } from "../../types/DataTypes";
+import fetchUtils from "../../utils/fetchUtils";
 import useFetchHotels from "./useFetchHotels";
 
 describe("useFetchHotels", () => {

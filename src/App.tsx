@@ -4,17 +4,15 @@ import { ThemeProvider } from "@mui/material/styles";
 import lightTheme from "./themes/lightTheme";
 import { HotelData } from "./types/DataTypes";
 import Loader from "./components/loader/Loader";
-import useFetchHotels from "./hooks/useFetchHotels";
+import useFetchHotels from "./hooks/useFetchHotels/useFetchHotels";
 import FiltersMenu from "./components/filtersMenu/FiltersMenu";
-import useRoomFilters from "./hooks/useRoomFilters";
+import useRoomFilters from "./hooks/useRoomFilters/useRoomFilters";
 import Hero from "./components/hero/Hero";
 import Footer from "./components/footer/Footer";
 import styled from "@emotion/styled";
-import { Container } from "@mui/material";
+import { FlexColumnContainer } from "./components/utilityComponents/styledComponents";
 
-const AppContainer = styled(Container)({
-  display: "flex",
-  flexDirection: "column",
+const AppContainer = styled(FlexColumnContainer)({
   justifyContent: "space-between",
   width: "100%",
   maxWidth: "100% !important",
@@ -40,20 +38,21 @@ function App() {
   );
 
   const isFooterFixedAtBottom = !hotelsData || filteredHotelsData.length === 0;
-  
+
   const setFetchedHotels = async () => {
     const fetchedHotelsData = await fetchHotels();
     setHotelsData(fetchedHotelsData);
-  }
+  };
 
   useEffect(() => {
-    setFetchedHotels()
+    setFetchedHotels();
   }, []);
 
   useEffect(() => {
     if (!hotelsData) return;
     setFilteredHotelsData(hotelsData);
     setIsLoading(false);
+
     if (hotelsData.length === 0) return;
     setIsInitialLoad(false);
   }, [hotelsData]);
@@ -79,8 +78,8 @@ function App() {
         ) : (
           <HotelsView
             hotelsData={filteredHotelsData}
-            data-testid="HotelView"
             isInitialLoad={isInitialLoad}
+            data-testid="HotelView"
           />
         )}
         <Footer fixedAtBottom={isFooterFixedAtBottom} />

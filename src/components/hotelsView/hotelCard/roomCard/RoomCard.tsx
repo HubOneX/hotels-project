@@ -3,51 +3,33 @@ import React, { FC } from "react";
 import { RoomData } from "../../../../types/DataTypes";
 import styled from "@emotion/styled";
 import breakpoints from "../../../../constants/breakpoints";
+import RoomInformation from "./roomInformation/RoomInformation";
 
-type Props = RoomData;
+type Props = { room: RoomData };
 
-const RoomInfoContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
+// used 'display: grid' instead of Grid MUI component for the constant 250px col for desktop view
+const GridBox = styled(Box)`
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 25px;
+
   @media (max-width: ${breakpoints.md}px) {
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
 `;
 
-const RoomCard: FC<Props> = ({ name, longDescription, occupancy }) => {
+const RoomCard: FC<Props> = ({ room }) => {
+  const { name, occupancy, longDescription } = room;
+
   return (
     <>
       <Divider sx={{ margin: "14px 0" }} />
-
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "250px 1fr" },
-          gap: "25px",
-        }}
-        data-testid="RoomCard"
-      >
-        <RoomInfoContainer>
-          <Typography
-            variant="subtitle1"
-            sx={{ marginRight: "auto", width: { xs: "50%", sm: "auto" } }}
-          >
-            {name}
-          </Typography>
-          <Typography variant="subtitle2">
-            Adults: {occupancy.maxAdults}
-          </Typography>
-          <Typography variant="subtitle2">
-            Children: {occupancy.maxChildren}
-          </Typography>
-        </RoomInfoContainer>
+      <GridBox data-testid="RoomCard">
+        <RoomInformation name={name} occupancy={occupancy} />
         <Typography variant="body1" sx={{ width: "98%" }}>
           {longDescription}
         </Typography>
-      </Box>
+      </GridBox>
     </>
   );
 };

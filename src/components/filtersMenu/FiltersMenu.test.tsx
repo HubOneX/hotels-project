@@ -1,41 +1,31 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import FiltersMenu from "./FiltersMenu";
+import renderer from "react-test-renderer";
 
 describe("FiltersMenu", () => {
-  it("should render correctly", () => {
-    render(
-      <FiltersMenu
-        rating={0}
-        setRating={jest.fn()}
-        adultsCount={0}
-        setAdultsCount={jest.fn()}
-        childrenCount={0}
-        setChildrenCount={jest.fn()}
-      />
-    );
+  const defaultProps = {
+    rating: 0,
+    setRating: jest.fn(),
+    adultsCount: 0,
+    setAdultsCount: jest.fn(),
+    childrenCount: 0,
+    setChildrenCount: jest.fn(),
+  };
 
-    const foundAdultFilter = screen.getByText("Adults:");
-    const foundChildrenFilter = screen.getByText("Children:");
-    const foundStarRating = screen.getByTestId("StarRatingFilter");
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
-    expect(foundAdultFilter).toBeInTheDocument();
-    expect(foundChildrenFilter).toBeInTheDocument();
-    expect(foundStarRating).toBeInTheDocument();
+  it("should match the snapshot", () => {
+    const container = renderer.create(<FiltersMenu {...defaultProps} />);
+
+    expect(container).toMatchSnapshot();
   });
 
   it("should change star rating value on unchecked star click", () => {
     const setRatingMock = jest.fn();
 
-    render(
-      <FiltersMenu
-        rating={0}
-        setRating={setRatingMock}
-        adultsCount={0}
-        setAdultsCount={jest.fn()}
-        childrenCount={0}
-        setChildrenCount={jest.fn()}
-      />
-    );
+    render(<FiltersMenu {...defaultProps} setRating={setRatingMock} />);
 
     //MUI test id for unchecked star
     const starRating = screen.getAllByTestId("StarBorderIcon")[3];
@@ -45,18 +35,11 @@ describe("FiltersMenu", () => {
     expect(setRatingMock).toBeCalledWith(4);
   });
 
-  it("should not change star rating value on change", () => {
+  it("should not change star rating value on checked star click", () => {
     const setRatingMock = jest.fn();
 
     render(
-      <FiltersMenu
-        rating={3}
-        setRating={setRatingMock}
-        adultsCount={0}
-        setAdultsCount={jest.fn()}
-        childrenCount={0}
-        setChildrenCount={jest.fn()}
-      />
+      <FiltersMenu {...defaultProps} rating={3} setRating={setRatingMock} />
     );
 
     //MUI test id for checked star

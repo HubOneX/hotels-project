@@ -1,17 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import { roomsMockArray } from "../../../mocks/roomsMockArray";
-import { HotelData } from "../../../types/DataTypes";
 import HotelCard from "./HotelCard";
 
 describe("HotelCard", () => {
-  const defaultProps: HotelData = {
-    id: "H01",
-    hotelName: "Hotel",
-    hotelAddressFirstLine: "address",
-    hotelAddressSecondLine: "and second line",
-    starRating: 4,
-    images: [{url: 'url', alt: 'alt' }],
-    roomsData: roomsMockArray,
+  const defaultProps = {
+    hotel: {
+      id: "H01",
+      hotelName: "Hotel",
+      hotelAddressFirstLine: "address",
+      hotelAddressSecondLine: "and second line",
+      starRating: 4,
+      images: [{ url: "url", alt: "alt" }],
+      roomsData: roomsMockArray,
+    },
   };
 
   it("should render HotelInformation", () => {
