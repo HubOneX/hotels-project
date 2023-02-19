@@ -2,7 +2,7 @@
 
 exports[`Loader should match the snapshot 1`] = `
 <div
-  className="MuiContainer-root MuiContainer-maxWidthLg css-ulvtim-MuiContainer-root"
+  className="MuiContainer-root MuiContainer-maxWidthLg css-15jobu-MuiContainer-root"
 >
   <p
     className="MuiTypography-root MuiTypography-body1 css-1dtp7xy-MuiTypography-root"
