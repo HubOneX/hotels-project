@@ -12,7 +12,7 @@ const HeaderBox = styled(FlexColumnBox)`
 `;
 
 const Hero = () => {
-  // as discussed in the email conversation this part doesn't have an image from the API call
+  // As discussed in the email conversation this part doesn't have an image from the API call
   return (
     <HeaderBox>
       <Typography variant="h1">HotelsFindr</Typography>

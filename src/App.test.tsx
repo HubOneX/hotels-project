@@ -27,6 +27,8 @@ describe("App", () => {
     expect(foundElement).toBeInTheDocument();
   });
 
+  // The tests below seemed to not work with classic render because of the length of rendered components,
+  // so I figured out a way to make the output shorter since I couldn't use shallow rendering in react-testing-library.
   it("should render loader when without data and is initial load", async () => {
     const container = renderer.create(<App />);
 

@@ -49,4 +49,14 @@ describe("FiltersMenu", () => {
 
     expect(setRatingMock).not.toBeCalled();
   });
+
+  it("should disable add button for children when 0 adults", () => {
+    render(<FiltersMenu {...defaultProps} />);
+
+    const addChildrenButton = screen.getAllByRole("button")[2];
+    const addAdultsButton = screen.getAllByRole("button")[0];
+
+    expect(addChildrenButton).toBeDisabled();
+    expect(addAdultsButton).not.toBeDisabled();
+  });
 });

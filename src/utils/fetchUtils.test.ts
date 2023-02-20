@@ -1,6 +1,5 @@
 import fetchUtils from "./fetchUtils";
 import urls from "../constants/urls";
-
 import axios, { AxiosResponse } from "axios";
 import { hotelsMockResponse } from "../mocks/hotelsMockResponse";
 import { roomsMockResponse } from "../mocks/roomsMockResponse";

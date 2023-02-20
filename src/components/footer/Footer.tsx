@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { Box, Link, Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import React, { FC } from "react";
 import colors from "../../constants/colors";
 import { FlexCenterAlignedBox } from "../utilityComponents/styledComponents";
 
-// Added so the spaces around the Link are being rendered in a clean way,
-// normally would use translations with these spaces in them anyway.
+// Added so the spaces around the Link are being rendered in a way that doesn't clutter the code,
+// normally I would use translations with these spaces already in them.
 const madeBy = "Made by ";
 const forInterview = " for a technical interview.";
 
