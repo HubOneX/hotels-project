@@ -24,6 +24,7 @@ const HotelHeader = styled(Box)`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  
   @media (max-width: ${breakpoints.md}px) {
     flex-direction: column-reverse;
     align-items: center;

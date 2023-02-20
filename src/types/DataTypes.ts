@@ -17,7 +17,6 @@ export type ImageWithAlt = {
 };
 
 export interface RoomData extends Id {
-  id: string;
   name: string;
   longDescription: string;
   occupancy: Occupancy;

@@ -21,7 +21,7 @@ describe("GuestSelection", () => {
     expect(counter).toBeInTheDocument();
 
     const addButton = screen.getAllByRole("button")[0];
-    await fireEvent.click(addButton);
+    fireEvent.click(addButton);
 
     expect(setCurrentCountMock).toBeCalledWith(1);
   });
@@ -33,7 +33,7 @@ describe("GuestSelection", () => {
     expect(counter).toBeInTheDocument();
 
     const removeButton = screen.getAllByRole("button")[1];
-    await fireEvent.click(removeButton);
+    fireEvent.click(removeButton);
 
     expect(setCurrentCountMock).toBeCalledWith(2);
   });

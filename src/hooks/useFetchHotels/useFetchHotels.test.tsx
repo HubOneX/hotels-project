@@ -53,7 +53,7 @@ describe("useFetchHotels", () => {
       expect(JSON.stringify(parsedHotels)).toEqual("[]");
     });
 
-    it("should return empty array if fetchedRooms is empty", () => {
+    it("should return empty array if fetchedRooms object is empty", () => {
       const { _forTestsOnly } = useFetchHotels();
       const parsedHotels = _forTestsOnly.parseFetchedRoomsData({});
       expect(JSON.stringify(parsedHotels)).toEqual("[]");

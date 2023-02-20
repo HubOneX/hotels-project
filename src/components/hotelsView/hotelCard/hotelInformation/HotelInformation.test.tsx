@@ -1,48 +1,18 @@
-import { render, screen } from "@testing-library/react";
 import React from "react";
 import HotelInformation from "./HotelInformation";
+import renderer from "react-test-renderer";
 
 describe("HotelInformation", () => {
-  const expectedText = "expected text";
-
-  const checkIfSingularElementExists = () => {
-    const foundElements = screen.getAllByText(expectedText);
-    expect(foundElements).toHaveLength(1);
+  const defaultProps = {
+    hotelName: "Bayview Hotel",
+    hotelAddressFirstLine: "Los Angeles",
+    hotelAddressSecondLine: "Beverly Hills 90210",
+    starRating: 4,
   };
 
-  it("should render hotel name", () => {
-    render(
-      <HotelInformation
-        hotelName={expectedText}
-        hotelAddressFirstLine=""
-        hotelAddressSecondLine=""
-        starRating={3}
-      />
-    );
-    checkIfSingularElementExists();
-  });
+  it("should match the snapshot", () => {
+    const container = renderer.create(<HotelInformation {...defaultProps} />);
 
-  it("should render address line 1", () => {
-    render(
-      <HotelInformation
-        hotelName=""
-        hotelAddressFirstLine={expectedText}
-        hotelAddressSecondLine=""
-        starRating={3}
-      />
-    );
-    checkIfSingularElementExists();
-  });
-
-  it("should render address line 2", () => {
-    render(
-      <HotelInformation
-        hotelName=""
-        hotelAddressFirstLine=""
-        hotelAddressSecondLine={expectedText}
-        starRating={3}
-      />
-    );
-    checkIfSingularElementExists();
+    expect(container).toMatchSnapshot();
   });
 });
