@@ -72,11 +72,10 @@ function App() {
           setChildrenCount={setChildrenCount}
         />
         {isLoading ? (
-          <Loader data-testid="Loader" />
+          <Loader />
         ) : (
           <HotelsView
             hotelsData={filteredHotelsData}
-            data-testid="HotelView"
             isInitialLoad={isInitialLoad}
           />
         )}
