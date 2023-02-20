@@ -1,3 +1,5 @@
+import { hotelsMockResponse } from "../../mocks/hotelsMockResponse";
+import { roomsMockResponse } from "../../mocks/roomsMockResponse";
 import { HotelData } from "../../types/DataTypes";
 import fetchUtils from "../../utils/fetchUtils";
 import useFetchHotels from "./useFetchHotels";
@@ -8,40 +10,20 @@ describe("useFetchHotels", () => {
   });
 
   const mockRoomsData = {
-    rooms: [
-      {
-        id: "R01",
-        name: "Room",
-        longDescription: "description",
-        occupancy: {
-          maxAdults: 2,
-          maxChildren: 1,
-          maxOverall: 3,
-        },
-      },
-    ],
+    rooms: roomsMockResponse,
   };
 
   const mockParsedRoomsData =
-    '[{"id":"R01","name":"Room","longDescription":"description","occupancy":{"maxAdults":2,"maxChildren":1,"maxOverall":3}}]';
-
-  const mockHotelsData = [
-    {
-      id: "H01",
-      name: "Hotel",
-      address1: "addr",
-      address2: "ess",
-      starRating: 4,
-    },
-  ];
+    '[{"id":"id2","name":"room name","longDescription":"desscription","occupancy":{"maxAdults":2,"maxChildren":1,"maxOverall":3}}]';
 
   const mockParsedHotelsData =
-    '[{"id":"H01","hotelName":"Hotel","hotelAddressFirstLine":"addr","hotelAddressSecondLine":"ess","starRating":4,"roomsData":[]}]';
+    '[{"id":"id1","hotelName":"hotel name","hotelAddressFirstLine":"add","hotelAddressSecondLine":"ress","starRating":2,"images":[{"url":"url","alt":"alt"}],"roomsData":[]}]';
 
   describe("parseFetchedHotelsData", () => {
     it("should parse fetched hotels data", () => {
       const { _forTestsOnly } = useFetchHotels();
-      const parsedHotels = _forTestsOnly.parseFetchedHotelsData(mockHotelsData);
+      const parsedHotels =
+        _forTestsOnly.parseFetchedHotelsData(hotelsMockResponse);
       expect(JSON.stringify(parsedHotels)).toEqual(mockParsedHotelsData);
     });
 
@@ -117,7 +99,7 @@ describe("useFetchHotels", () => {
       jest
         .spyOn(fetchUtils, "fetchHotelData")
         //@ts-ignore
-        .mockReturnValue(Promise.resolve(mockHotelsData));
+        .mockReturnValue(Promise.resolve(hotelsMockResponse));
       const { fetchHotels } = useFetchHotels();
       const result = await fetchHotels();
       expect(JSON.stringify(result)).toEqual(mockParsedHotelsData);

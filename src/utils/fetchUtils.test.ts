@@ -2,27 +2,24 @@ import fetchUtils from "./fetchUtils";
 import urls from "../constants/urls";
 
 import axios, { AxiosResponse } from "axios";
+import { hotelsMockResponse } from "../mocks/hotelsMockResponse";
+import { roomsMockResponse } from "../mocks/roomsMockResponse";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("fetchUtils", () => {
+  let errorSpy: jest.SpyInstance<void>;
+
+  beforeEach(() => {
+    errorSpy = jest.spyOn(console, "error").mockImplementation();
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
-  
-  describe("fetchHotelData", () => {
-    const hotelsMockResponse = [
-      {
-        id: "id1",
-        name: "hotel name",
-        address1: "add",
-        address2: "ress",
-        starRating: 2,
-        images: [{ url: "url", alt: "alt" }],
-      },
-    ];
 
+  describe("fetchHotelData", () => {
     it("should return hotels data if no errors", async () => {
       const mockedResponse: AxiosResponse = {
         data: hotelsMockResponse,
@@ -46,24 +43,12 @@ describe("fetchUtils", () => {
       const result = await fetchUtils.fetchHotelData();
 
       expect(mockedAxios.get).toHaveBeenCalledWith(urls.fetchHotelsDataUrl);
+      expect(errorSpy).toHaveBeenCalled();
       expect(result).toEqual(undefined);
     });
   });
 
   describe("fetchRoomsDataForHotelId", () => {
-    const roomsMockResponse = [
-      {
-        id: "id2",
-        name: "room name",
-        longDescription: "desscription",
-        occupancy: {
-          maxAdults: 2,
-          maxChildren: 1,
-          maxOverall: 3,
-        },
-      },
-    ];
-
     it("should return rooms data if no errors", async () => {
       const mockedResponse: AxiosResponse = {
         data: roomsMockResponse,
@@ -91,6 +76,7 @@ describe("fetchUtils", () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
         urls.fetchHotelRoomsDataUrl + "id1"
       );
+      expect(errorSpy).toHaveBeenCalled();
       expect(result).toEqual(undefined);
     });
   });

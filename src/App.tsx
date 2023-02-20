@@ -49,11 +49,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!hotelsData) return;
+    if (hotelsData.length === 0 && isInitialLoad) return;
     setFilteredHotelsData(hotelsData);
     setIsLoading(false);
-
-    if (hotelsData.length === 0) return;
     setIsInitialLoad(false);
   }, [hotelsData]);
 
@@ -74,11 +72,10 @@ function App() {
           setChildrenCount={setChildrenCount}
         />
         {isLoading ? (
-          <Loader data-testid="Loader" />
+          <Loader />
         ) : (
           <HotelsView
             hotelsData={filteredHotelsData}
-            data-testid="HotelView"
             isInitialLoad={isInitialLoad}
           />
         )}
